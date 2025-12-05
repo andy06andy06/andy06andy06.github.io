@@ -1,16 +1,47 @@
-## Hi there 👋
+# Cheng-En Chiang - Personal Portfolio
 
-<!--
-**andy06andy06/andy06andy06** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+This is the personal portfolio website of Cheng-En Chiang, a Machine Learning Engineer and Researcher specializing in computer vision, deep learning, and autonomous systems.
 
-Here are some ideas to get you started:
+## Tech Stack
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Deployment:** GitHub Pages
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Deployment
+
+This project is configured for static export to GitHub Pages.
+
+To deploy:
+1. Push changes to the `main` branch.
+2. Go to repository Settings > Pages.
+3. Select `GitHub Actions` as the source.
+4. The deployment workflow should automatically trigger.
+
+## Project Structure
+
+- `src/app`: Main application pages and layout
+- `src/components`: Reusable UI components
+  - `Hero.tsx`: Landing section
+  - `About.tsx`: Bio and background
+  - `Skills.tsx`: Technical skills
+  - `Projects.tsx`: Research and projects
+  - `Contact.tsx`: Contact information
