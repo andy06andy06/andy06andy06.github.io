@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import selfImg from '@/assets/self_img.png';
 
 export default function Hero() {
     return (
@@ -95,11 +96,12 @@ export default function Hero() {
                             {/* Image Container */}
                             <div className="relative w-full h-full rounded-full border-4 border-slate-800 overflow-hidden shadow-2xl">
                                 <Image
-                                    src="/self_img.png"
+                                    src={selfImg}
                                     alt="Cheng-En Chiang"
                                     fill
                                     className="object-cover"
                                     priority
+                                    placeholder="blur"
                                 />
                             </div>
                         </div>
