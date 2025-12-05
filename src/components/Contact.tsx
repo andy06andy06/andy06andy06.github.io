@@ -21,7 +21,7 @@ export default function Contact() {
                     </p>
 
                     <Link
-                        href="mailto:example@email.com"
+                        href="mailto:andy06andy06@gmail.com"
                         className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-blue-600 hover:bg-blue-500 transition-all hover:scale-105 font-medium text-lg"
                     >
                         <Mail size={24} />
