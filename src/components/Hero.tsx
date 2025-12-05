@@ -53,14 +53,14 @@ export default function Hero() {
                                 <Github size={24} />
                             </Link>
                             <Link
-                                href="https://linkedin.com"
+                                href="https://www.linkedin.com/in/%E6%89%BF%E6%81%A9-%E6%B1%9F-a9642b324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                                 target="_blank"
                                 className="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors text-white border border-slate-700 hover:border-blue-500/50"
                             >
                                 <Linkedin size={24} />
                             </Link>
                             <Link
-                                href="mailto:example@email.com"
+                                href="mailto:andy06andy06@gmail.com"
                                 className="p-3 rounded-full bg-slate-800 hover:bg-slate-700 transition-colors text-white border border-slate-700 hover:border-blue-500/50"
                             >
                                 <Mail size={24} />
