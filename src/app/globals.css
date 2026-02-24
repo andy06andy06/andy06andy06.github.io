@@ -5,11 +5,36 @@
 }
 
 :root {
-  --background: #020617; /* slate-950 */
-  --foreground: #ffffff;
+  --background: #fdf6e3; /* Light beige for a clean slate */
+  --foreground: #111827; /* Dark text */
+  --win-bg: #ffffff;
+  
+  /* Vibrant Colors */
+  --primary-pink: #f472b6;
+  --primary-yellow: #fde047;
+  --primary-cyan: #2dd4bf;
+  --primary-purple: #c084fc;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image: linear-gradient(var(--primary-cyan) 1px, transparent 1px),
+    linear-gradient(90deg, var(--primary-cyan) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
   color: var(--foreground);
+}
+
+/* Custom scrollbar for brutalist feel */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--win-bg);
+  border-left: 2px solid #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border: 2px solid var(--win-bg);
 }
