@@ -52,15 +52,10 @@ export default function Contact() {
 
             <div className="flex flex-col gap-4">
                 {contacts.map((contact, index) => {
-                    const ContentWrapper = contact.link ? Link : 'div';
-                    const wrapperProps = contact.link ? { href: contact.link, target: "_blank", rel: "noopener noreferrer" } : {};
+                    const className = `p-3 border-2 border-black flex items-center gap-4 ${contact.color} shadow-[4px_4px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] transition-all ${contact.link ? 'cursor-pointer' : ''}`;
                     
-                    return (
-                        <ContentWrapper
-                            key={index}
-                            {...wrapperProps}
-                            className={`p-3 border-2 border-black flex items-center gap-4 ${contact.color} shadow-[4px_4px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] transition-all ${contact.link ? 'cursor-pointer' : ''}`}
-                        >
+                    const innerContent = (
+                        <>
                             <div className="p-2 bg-white border-2 border-black rounded-full shrink-0">
                                 {contact.icon}
                             </div>
@@ -68,7 +63,27 @@ export default function Contact() {
                                 <h3 className="font-black text-black uppercase text-xs">{contact.label}</h3>
                                 <p className="font-bold text-sm text-black/90 truncate">{contact.value}</p>
                             </div>
-                        </ContentWrapper>
+                        </>
+                    );
+
+                    if (contact.link) {
+                        return (
+                            <Link
+                                key={index}
+                                href={contact.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={className}
+                            >
+                                {innerContent}
+                            </Link>
+                        );
+                    }
+
+                    return (
+                        <div key={index} className={className}>
+                            {innerContent}
+                        </div>
                     );
                 })}
             </div>
