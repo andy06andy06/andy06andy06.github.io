@@ -8,34 +8,42 @@ export default function Projects() {
         {
             title: "Livestock Monitoring Systems",
             category: "Research",
-            description: "Developed vision-based detection systems including lameness detection using U-Net and behavior analysis of piglets with YOLO and LSTM.",
+            description: "Developed vision-based lameness detection using U-Net and pose estimation, and piglet behavior analysis with YOLOv11 and EfficientNet-LSTM.",
             tags: ["PyTorch", "Computer Vision", "Deep Learning"],
             link: "#",
             color: "bg-cyan-100"
         },
         {
-            title: "Autonomous Field Robots",
+            title: "National Field Robot",
             category: "Robotics",
-            description: "Designed and built autonomous robots for agricultural applications, integrating hardware control with software logic.",
-            tags: ["Robotics", "Arduino", "C++"],
+            description: "Directed a software team integrating CV into an autonomous field robot using YOLOv7 for fruit detection (98.3% mAP).",
+            tags: ["Robotics", "Arduino", "Python"],
             link: "#",
             color: "bg-pink-100"
         },
         {
-            title: "Multiplayer Web Applications",
+            title: "Wordle Online Game",
             category: "Web Dev",
-            description: "Built full-stack multiplayer web applications, handling both frontend user experience and backend logic.",
-            tags: ["React", "Next.js", "Node.js"],
+            description: "Built full-stack multiplayer web app with dual-player mode using Next.js, Express, PostgreSQL, and WebSockets.",
+            tags: ["Next.js", "Express", "WebSocket"],
             link: "#",
             color: "bg-yellow-100"
         },
         {
-            title: "Raspberry Pi Robotics",
+            title: "Remote Control Vacuum Car",
             category: "Robotics",
-            description: "Created various robotics projects using Raspberry Pi, focusing on real-time control and sensor integration.",
-            tags: ["Raspberry Pi", "Python", "IoT"],
+            description: "Developed an autonomous vacuum cleaning robot capable of navigating obstacles using Arduino and Raspberry Pi.",
+            tags: ["Raspberry Pi", "Arduino", "OpenCV"],
             link: "#",
             color: "bg-purple-100"
+        },
+        {
+            title: "Pineapple Stage Classifier",
+            category: "Machine Learning",
+            description: "Trained a ResNet-18 model to classify pineapple growth stages with an accuracy of 99.7%.",
+            tags: ["ResNet", "PyTorch", "Python"],
+            link: "#",
+            color: "bg-green-100"
         }
     ];
 
@@ -43,12 +51,17 @@ export default function Projects() {
         {
             title: "Frontiers in Animal Science",
             role: "Co-author",
-            description: "Published research on animal welfare and monitoring technology."
+            description: "Monitoring the lactation-related behaviors of sows and their piglets in farrowing crates using deep learning."
         },
         {
-            title: "International Conferences",
-            role: "Presenter",
-            description: "Presented research findings at conferences in Jeju and Bali."
+            title: "XX CIGR World Congress 2026, Turin",
+            role: "Oral Presentation",
+            description: "Lameness detection of gilts based on posture analysis using deep learning."
+        },
+        {
+            title: "11th ISMAB, Bali",
+            role: "Oral Presentation",
+            description: "A pig foot detection and tracking approach for gait evaluation."
         }
     ];
 
@@ -70,9 +83,6 @@ export default function Projects() {
                                 <div className="flex gap-2">
                                     <Link href={project.link} className="p-1 bg-white border-2 border-black hover:bg-black hover:text-white transition-colors">
                                         <Github size={18} />
-                                    </Link>
-                                    <Link href={project.link} className="p-1 bg-white border-2 border-black hover:bg-black hover:text-white transition-colors">
-                                        <ExternalLink size={18} />
                                     </Link>
                                 </div>
                             </div>

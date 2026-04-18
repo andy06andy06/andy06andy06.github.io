@@ -7,7 +7,7 @@ export default function About() {
         {
             icon: <GraduationCap className="w-6 h-6 text-black" />,
             title: "Education",
-            description: "B.S. in Biomechatronics Engineering, NTU",
+            description: "Dual M.S. at NTU & Univ. of Tsukuba | B.S. NTU",
             color: "bg-pink-300"
         },
         {
@@ -31,15 +31,15 @@ export default function About() {
     ];
 
     return (
-        <div className="flex flex-col gap-6 text-black">
-            <h2 className="text-3xl font-black mb-4 uppercase border-b-4 border-black pb-2 inline-block self-start">About Me</h2>
+        <div className="flex flex-col gap-6 text-black p-2 pb-6">
+            <h2 className="text-3xl font-black mb-2 uppercase border-b-4 border-black pb-2 inline-block self-start">About Me</h2>
 
             <div className="text-lg font-bold leading-relaxed bg-white border-2 border-black p-4 shadow-[4px_4px_0_0_#000]">
                 <p className="mb-4">
                     I am a machine learning engineer and researcher with a deep passion for applying technology to solve real-world problems in agriculture and autonomous systems.
                 </p>
                 <p className="mb-4">
-                    My journey began at National Taiwan University, where I combined my interests in AI and robotics to create solutions for smart farming. I have experience developing vision-based detection systems for livestock, managing training server infrastructure, and building autonomous field robots.
+                    My journey began at National Taiwan University, where I earned my B.S. in Biomechatronics Engineering. I am currently pursuing a Dual-Degree Master's program at NTU and the University of Tsukuba, focusing on AI and robotics for smart farming. I have extensive experience in developing vision-based detection systems for livestock, managing training server infrastructure, and building autonomous field robots.
                 </p>
                 <p>
                     Beyond engineering, I run a photography company, capturing visuals that tell compelling stories. I believe in the power of technology to create meaningful impact.

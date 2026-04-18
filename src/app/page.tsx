@@ -6,11 +6,10 @@ import DesktopIcon from '@/components/DesktopIcon';
 import Window from '@/components/Window';
 import { User, Code2, Wrench, Mail } from 'lucide-react';
 
-// Import sections to display inside windows later
-// import About from '@/components/About';
-// import Projects from '@/components/Projects';
-// import Skills from '@/components/Skills';
-// import Contact from '@/components/Contact';
+import About from '@/components/About';
+import Projects from '@/components/Projects';
+import Skills from '@/components/Skills';
+import Contact from '@/components/Contact';
 
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
@@ -50,7 +49,7 @@ export default function Home() {
             name={app.name}
             icon={app.icon}
             color={app.color}
-            onDoubleClick={toggleWindow}
+            onClick={toggleWindow}
           />
         ))}
       </div>
@@ -67,8 +66,8 @@ export default function Home() {
         defaultPosition={{ x: 100, y: 50 }}
         className="w-[600px] h-[500px]"
       >
-        <div className="p-4 border-2 border-black h-full bg-[#fdf6e3]">
-          <p className="font-mono text-sm leading-relaxed">Loading About data...</p>
+        <div className="p-4 border-2 border-black h-full bg-[#fdf6e3] overflow-y-auto">
+          <About />
         </div>
       </Window>
 
@@ -80,11 +79,11 @@ export default function Home() {
         onClose={toggleWindow}
         onBringToFront={bringToFront}
         headerColor="#2dd4bf"
-        defaultPosition={{ x: 200, y: 100 }}
+        defaultPosition={{ x: 150, y: 100 }}
         className="w-[800px] h-[600px]"
       >
-        <div className="p-4 border-2 border-black h-full bg-white">
-          <p className="font-mono text-sm leading-relaxed">Loading Projects data...</p>
+        <div className="p-4 border-2 border-black h-full bg-white overflow-y-auto">
+          <Projects />
         </div>
       </Window>
 
@@ -96,11 +95,11 @@ export default function Home() {
         onClose={toggleWindow}
         onBringToFront={bringToFront}
         headerColor="#fde047"
-        defaultPosition={{ x: 300, y: 150 }}
+        defaultPosition={{ x: 200, y: 150 }}
         className="w-[500px] h-[400px]"
       >
-        <div className="p-4 border-2 border-black h-full bg-white">
-          <p className="font-mono text-sm leading-relaxed">Loading Skills data...</p>
+        <div className="p-4 border-2 border-black h-full bg-white overflow-y-auto">
+          <Skills />
         </div>
       </Window>
 
@@ -112,11 +111,11 @@ export default function Home() {
         onClose={toggleWindow}
         onBringToFront={bringToFront}
         headerColor="#c084fc"
-        defaultPosition={{ x: 400, y: 200 }}
+        defaultPosition={{ x: 250, y: 200 }}
         className="w-[450px] h-[450px]"
       >
-        <div className="p-4 border-2 border-black h-full bg-white">
-          <p className="font-mono text-sm leading-relaxed">Loading Contact data...</p>
+        <div className="p-4 border-2 border-black h-full bg-white overflow-y-auto">
+          <Contact />
         </div>
       </Window>
 

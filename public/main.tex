@@ -1,0 +1,239 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage{fontawesome}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
+%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
+% \end{tabular*}
+
+\begin{center}
+    \textbf{\Huge \scshape Cheng-En Chiang \\ \vspace{1pt}
+     \small \faPhone{ }(+886) 908055301 $|$ \href{andy06andy06@gmail.com}
+     \faEnvelope{ \underline{r13631012@ntu.edu.tw}}  $|$
+ \href{https://github.com/andy06andy06}
+     \faGithub{ \underline{github.com/andy06andy06}}
+    }
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {National Taiwan University \& University of Tsukuba }{}
+      {Dual-Degree Program}{Dec. 2026(Expected)}
+      \resumeItemListStart
+        \resumeItem{National Taiwan University: Master of Science in Biomechatronics Engineering}
+        \resumeItem{University of Tsukuba: Master of Agricultural Science in Agro-Bioresources Sciences and Technology}
+          \resumeItem{Received \textbf{1 scholarship}}
+      \resumeItemListEnd
+    \resumeSubheading
+      {National Taiwan University }{}
+      {Bachelor of Science in Biomechatronics Engineering}{Sept. 2020 -- June 2024}
+      \resumeItemListStart
+        \resumeItem{Received \textbf{Dean's List Award\textbf{ }1 time} and \textbf{2 scholarships}}
+        \resumeItem{Courses: Data Structures and Algorithms, Data Science, Linear Algebra, Machine Learning, Image Processing, Web Programming}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+%---------------------------------
+
+%-----------Work EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+    
+    \resumeSubheading
+      {Lab of Machine Learning and Machine Vision, NTU}{}
+      {Researcher, Server Administrator}{July 2023 -- Present}
+      \resumeItemListStart
+        \resumeItem{Developed a pose estimation system using EfficientNet to track \textbf{16 keypoints} with \textbf{3.75 pixels RMSE}, and achieved \textbf{91\% accuracy} in classifying lameness across 32 pigs by integrating gait features with an SVM classifier.}
+        \resumeItem{Administer a high-performance GPU cluster (6x NVIDIA RTX A6000) using Docker and Kubernetes, facilitating cloud computing resources and remote access for researchers at the University of Tsukuba.}
+      \resumeItemListEnd
+      \resumeSubheading
+      {Bioproduction and Machinery Lab, UT}{}
+      {Researcher}{April 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Developed a behaviors monitoring system to observe piglets using YOLOv11 and EfficientNet-LSTM, achieved performance in detection, tracking, and behavior classification with \textbf{83.1\% MOTA}, and \textbf{93.0\% accuracy}.}
+        \resumeItem{Conducted full-stack development workshops for lab members and a partner university in the Philippines, bridging the gap between research algorithms and deployable web applications.}
+      \resumeItemListEnd
+      \resumeSubheading
+      {National Science and Technology Council}{}
+      {Undergraduate Researcher}{July 2023 -- Feb. 2024}
+      \resumeItemListStart
+      \resumeItem{Applied machine learning, machine vision, and embedded system in pig farming industry.}
+      \resumeItem{Integrated CNN architecture of U-Net with data analysis to establish a lameness detection system by tracking leg keypoints of pigs, replacing a pressure mat method which cost about \textbf{40,000 USD} for each mat.}
+      \resumeItemListEnd
+   \resumeSubHeadingListEnd
+%--------------------------------------------
+
+%-----------Publication-----------
+\section{Publication}
+      \resumeItemListStart 
+        \resumeItem{Tsai, Y.J., \textbf{Chiang, C.E} et al. Monitoring the lactation-related behaviors of sows and their piglets in farrowing crates using
+deep learning. Front. Anim. Sci. 5:1431285. doi: 10.3389/fanim.2024.1431285}
+    \resumeItemListEnd
+%---------------------------------------
+    
+%-----------Conference Experience-----------
+\section{Conference Presentation}
+      \resumeItemListStart
+        \resumeItem{\textbf{Chiang, C.E}, Lin, E.C, Kuo, Y.F, "Lameness detection of gilts based on posture analysis using deep learning" [Oral presentation] XX CIGR World Congress 2026, Turin, Italy.}
+        \resumeItem{\textbf{Chiang, C.E}, Lin, E.C, Kuo, Y.F, "A pig foot detection and tracking approach for gait evaluation " [Oral presentation] The 11th International Symposium on Machinery and Mechatronics for Agriculture and Biosystems Engineering, Bali, Indonesia.}
+    \resumeItemListEnd
+%---------------------------------------
+
+%-----------PROJECTS-----------
+\section{Projects \& Competition}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{National Field Robot Competition} $|$ \emph{YOLOv7, OpenCV, Python, PySerial, Arduino}}{}
+          \resumeItemListStart
+            \resumeItem{Applied YOLOv7 for fruit detection (\textbf{98.3\% mAP}, \textbf{99.1\% IOU}), enabling robust performance in outdoor field.}
+            \resumeItem{Directed a \textbf{4-person software engineering team} to integrate computer vision into an autonomous filed robot.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Wordle Online Game} $|$ \emph{Next.js, Express.js, PostgresSQL, Tailwind CSS, WebSocket ,Git}}{}
+          \resumeItemListStart
+            \resumeItem{Developed a \textbf{full-stack web application} using Express serving as RESTful API with Next.js as the framework.}
+            \resumeItem{Implemented a dual-player mode using WebSocket, where players guess each other's question within limited time.}
+            \resumeItem{Used Git for collaborative development with other 3 members, implementing horizontal division of project tasks.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Pineapple Growth Stage Classifier} $|$ \emph{Python, Pytorch, ResNet, OpenCV}}{}
+          \resumeItemListStart
+            \resumeItem{Trained a ResNet-18 model to classify different growth stages of pineapples which achieved an accuracy of \textbf{99.7\%}.}
+            \resumeItem{Analyzed the result of the classifier and organized the findings using matplotlib and confusion matrix.}
+          \resumeItemListEnd
+          \resumeProjectHeading
+          {\textbf{Remote Control Vacuum Car } $|$ \emph{Python, OpenCV, Arduino, Raspberry Pi }}{}
+          \resumeItemListStart
+            \resumeItem{Developed an autonomous vacuum cleaning robot capable of navigating obstacles and completing
+cleaning tasks.}
+            \resumeItem{Leveraged Arduino and Raspberry Pi to create a control system for the vacuum car, achieving maneuverability.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+%-------------------------------------------
+
+%-----------SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{AI \& Computing}{: Pytorch, Tensorflow, CUDA, HuggingFace, TensorRT} \\
+    }}
+\small{\item{
+     \textbf{Software Development}{: Python, C++, Java, Swift, JavaScript, HTML/CSS, React, Next.js} \\
+    }}
+\small{\item{
+     \textbf{Infrastructure \& Data}{: Linux, Docker, Kubernetes, Git, MySQL, PostgreSQL, MongoDB, Arduino, Raspberry Pi} \\
+    }}
+    \small{\item{
+     \textbf{Language}{: Mandarin(Native), English(Fluent, TOEIC L\&R 860), Japanese(Fluent, N1)} \\
+    }}
+ \end{itemize}
+%-------------------------------------------
+\end{document}

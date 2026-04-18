@@ -40,7 +40,7 @@ export default function Window({
             ref={windowRef}
             drag
             dragMomentum={false}
-            initial={{ opacity: 0, scale: 0.95, ...defaultPosition }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             onPointerDown={() => onBringToFront(id)}
@@ -52,6 +52,8 @@ export default function Window({
                 )
             )}
             style={{
+                left: defaultPosition.x,
+                top: defaultPosition.y,
                 minWidth: '350px',
                 minHeight: '200px',
             }}

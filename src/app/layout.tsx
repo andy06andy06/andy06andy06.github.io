@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased overflow-hidden h-screen w-screen bg-transparent`}>
+      <body suppressHydrationWarning className={`${inter.variable} antialiased overflow-hidden h-screen w-screen bg-transparent`}>
         {children}
       </body>
     </html>
