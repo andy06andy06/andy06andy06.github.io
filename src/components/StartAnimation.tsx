@@ -20,16 +20,18 @@ export default function StartAnimation({ isAnimating }: StartAnimationProps) {
                             style={{ backgroundColor: color }}
                             initial={{ y: '-100%' }}
                             animate={{ y: '0%' }}
-                            exit={{ y: '100%' }}
-                            transition={{
-                                duration: 0.6,
-                                ease: [0.22, 1, 0.36, 1], // Custom bouncy ease
-                                delay: index * 0.1,
-                                exit: {
+                            exit={{ 
+                                y: '100%',
+                                transition: {
                                     duration: 0.6,
                                     ease: [0.22, 1, 0.36, 1],
                                     delay: index * 0.1
                                 }
+                            }}
+                            transition={{
+                                duration: 0.6,
+                                ease: [0.22, 1, 0.36, 1], // Custom bouncy ease
+                                delay: index * 0.1
                             }}
                         />
                     ))}
@@ -38,8 +40,8 @@ export default function StartAnimation({ isAnimating }: StartAnimationProps) {
                         className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.5 }}
-                        transition={{ delay: 0.4, duration: 0.4, exit: { delay: 0 } }}
+                        exit={{ opacity: 0, scale: 1.5, transition: { delay: 0 } }}
+                        transition={{ delay: 0.4, duration: 0.4 }}
                     >
                         <h1 className="text-white text-5xl md:text-8xl font-black uppercase tracking-tighter mix-blend-difference drop-shadow-[4px_4px_0_#fff] text-center px-4">
                             Cheng En Chiang
