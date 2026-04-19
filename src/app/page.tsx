@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Taskbar from '@/components/Taskbar';
 import DesktopIcon from '@/components/DesktopIcon';
 import Window from '@/components/Window';
+import StartAnimation from '@/components/StartAnimation';
+import ClickSound from '@/components/ClickSound';
 import { User, Code2, Wrench, Mail } from 'lucide-react';
 
 import About from '@/components/About';
@@ -14,21 +16,63 @@ import Contact from '@/components/Contact';
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
+  const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
+  const [isStartAnimating, setIsStartAnimating] = useState(false);
 
-  const toggleWindow = (id: string) => {
+  const handleStartClick = () => {
+    if (isStartAnimating) return;
+    setIsStartAnimating(true);
+    setTimeout(() => {
+      setIsStartAnimating(false);
+    }, 1500);
+  };
+
+  const closeWindow = (id: string) => {
     if (openWindows.includes(id)) {
       setOpenWindows(openWindows.filter((win) => win !== id));
+      setMinimizedWindows(minimizedWindows.filter((win) => win !== id));
       if (activeWindow === id) {
-        setActiveWindow(openWindows.find((win) => win !== id) || null);
+        const remaining = openWindows.filter((win) => win !== id && !minimizedWindows.includes(win));
+        setActiveWindow(remaining.length > 0 ? remaining[remaining.length - 1] : null);
       }
-    } else {
+    }
+  };
+
+  const handleDesktopIconClick = (id: string) => {
+    if (!openWindows.includes(id)) {
       setOpenWindows([...openWindows, id]);
+      setMinimizedWindows(minimizedWindows.filter((win) => win !== id));
       setActiveWindow(id);
+    } else {
+      bringToFront(id);
     }
   };
 
   const bringToFront = (id: string) => {
     setActiveWindow(id);
+    if (minimizedWindows.includes(id)) {
+      setMinimizedWindows(minimizedWindows.filter((win) => win !== id));
+    }
+  };
+
+  const minimizeWindow = (id: string) => {
+    if (!minimizedWindows.includes(id)) {
+      setMinimizedWindows([...minimizedWindows, id]);
+    }
+    if (activeWindow === id) {
+      const remaining = openWindows.filter(win => win !== id && !minimizedWindows.includes(win));
+      setActiveWindow(remaining.length > 0 ? remaining[remaining.length - 1] : null);
+    }
+  };
+
+  const handleTaskbarClick = (id: string) => {
+    if (minimizedWindows.includes(id)) {
+      bringToFront(id);
+    } else if (activeWindow === id) {
+      minimizeWindow(id);
+    } else {
+      bringToFront(id);
+    }
   };
 
   const apps = [
@@ -40,6 +84,8 @@ export default function Home() {
 
   return (
     <main className="relative w-full h-full overflow-hidden p-6 select-none">
+      <ClickSound />
+      <StartAnimation isAnimating={isStartAnimating} />
       {/* Desktop Workspace */}
       <div className="flex flex-col gap-6 items-start h-full pb-16">
         {apps.map((app) => (
@@ -49,7 +95,7 @@ export default function Home() {
             name={app.name}
             icon={app.icon}
             color={app.color}
-            onClick={toggleWindow}
+            onClick={handleDesktopIconClick}
           />
         ))}
       </div>
@@ -60,11 +106,13 @@ export default function Home() {
         title="About.txt - NotePad"
         isOpen={openWindows.includes('about')}
         isActive={activeWindow === 'about'}
-        onClose={toggleWindow}
+        isMinimized={minimizedWindows.includes('about')}
+        onClose={closeWindow}
+        onMinimize={minimizeWindow}
         onBringToFront={bringToFront}
         headerColor="#f472b6"
         defaultPosition={{ x: 100, y: 50 }}
-        className="w-[600px] h-[500px]"
+        className="w-[90vw] md:w-[750px] h-[75vh] md:h-[500px]"
       >
         <div className="p-4 border-2 border-black h-full bg-[#fdf6e3] overflow-y-auto">
           <About />
@@ -76,11 +124,13 @@ export default function Home() {
         title="Projects.exe - Portfolio"
         isOpen={openWindows.includes('projects')}
         isActive={activeWindow === 'projects'}
-        onClose={toggleWindow}
+        isMinimized={minimizedWindows.includes('projects')}
+        onClose={closeWindow}
+        onMinimize={minimizeWindow}
         onBringToFront={bringToFront}
         headerColor="#2dd4bf"
         defaultPosition={{ x: 150, y: 100 }}
-        className="w-[800px] h-[600px]"
+        className="w-[90vw] md:w-[800px] h-[75vh] md:h-[600px]"
       >
         <div className="p-4 border-2 border-black h-full bg-white overflow-y-auto">
           <Projects />
@@ -92,11 +142,13 @@ export default function Home() {
         title="System_Skills.cfg"
         isOpen={openWindows.includes('skills')}
         isActive={activeWindow === 'skills'}
-        onClose={toggleWindow}
+        isMinimized={minimizedWindows.includes('skills')}
+        onClose={closeWindow}
+        onMinimize={minimizeWindow}
         onBringToFront={bringToFront}
         headerColor="#fde047"
         defaultPosition={{ x: 200, y: 150 }}
-        className="w-[500px] h-[400px]"
+        className="w-[90vw] md:w-[700px] h-[75vh] md:h-[450px]"
       >
         <div className="p-4 border-2 border-black h-full bg-white overflow-y-auto">
           <Skills />
@@ -108,18 +160,27 @@ export default function Home() {
         title="Send_Mail - Outlook Express"
         isOpen={openWindows.includes('contact')}
         isActive={activeWindow === 'contact'}
-        onClose={toggleWindow}
+        isMinimized={minimizedWindows.includes('contact')}
+        onClose={closeWindow}
+        onMinimize={minimizeWindow}
         onBringToFront={bringToFront}
         headerColor="#c084fc"
         defaultPosition={{ x: 250, y: 200 }}
-        className="w-[450px] h-[450px]"
+        className="w-[90vw] md:w-[450px] h-[75vh] md:h-[450px]"
       >
         <div className="p-4 border-2 border-black h-full bg-white overflow-y-auto">
           <Contact />
         </div>
       </Window>
 
-      <Taskbar />
+      <Taskbar
+        apps={apps}
+        openWindows={openWindows}
+        activeWindow={activeWindow}
+        minimizedWindows={minimizedWindows}
+        onWindowClick={handleTaskbarClick}
+        onStartClick={handleStartClick}
+      />
     </main>
   );
 }
