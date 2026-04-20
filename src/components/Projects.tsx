@@ -3,41 +3,9 @@
 import { ExternalLink, Github } from 'lucide-react';
 import Link from 'next/link';
 
+import { projectsData as projects } from '@/data/portfolio';
+
 export default function Projects() {
-    const projects = [
-        {
-            title: "Wordle Online Game",
-            category: "Web Dev",
-            description: "Developed a full-stack web application using Express serving as RESTful API with Next.js as the framework. Implemented a dual-player mode using WebSocket, where players guess each other's question within limited time.",
-            tags: ["Next.js", "Express.js", "PostgresSQL", "Tailwind CSS", "WebSocket"],
-            link: "#",
-            color: "bg-yellow-100"
-        },
-        {
-            title: "National Field Robot",
-            category: "Robotics",
-            description: "Applied YOLOv7 for fruit detection (98.3% mAP, 99.1% IOU), enabling robust performance in outdoor field. Managed a 4-person team to deploy computer vision for an autonomous robot.",
-            tags: ["YOLOv7", "OpenCV", "Python", "PySerial", "Arduino"],
-            link: "#",
-            color: "bg-pink-100"
-        },
-        {
-            title: "Pineapple Stage Classifier",
-            category: "Machine Learning",
-            description: "Trained a ResNet-18 model to classify different growth stages of pineapples which achieved an accuracy of 99.7%. Analyzed the result of the classifier and organized the findings using matplotlib and confusion matrix.",
-            tags: ["Python", "Pytorch", "ResNet", "OpenCV"],
-            link: "#",
-            color: "bg-green-100"
-        },
-        {
-            title: "Remote Control Vacuum Car",
-            category: "Robotics",
-            description: "Developed an autonomous vacuum cleaning robot capable of navigating obstacles and completing cleaning tasks. Designed and implemented an Arduino/Raspberry Pi-based control architecture for vacuum robot navigation.",
-            tags: ["Python", "OpenCV", "Arduino", "Raspberry Pi"],
-            link: "#",
-            color: "bg-purple-100"
-        }
-    ];
 
     return (
         <div className="flex flex-col gap-8 text-black pb-4">

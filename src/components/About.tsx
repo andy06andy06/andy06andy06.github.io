@@ -2,45 +2,10 @@
 
 import { Briefcase, GraduationCap } from 'lucide-react';
 
-export default function About() {
-    const experiences = [
-        {
-            title: "Researcher, Server Administrator",
-            company: "Lab of Machine Learning and Machine Vision",
-            date: "July 2023 -- Present",
-            description: "Developed pose estimation systems and administered high-performance GPU clusters.",
-            color: "bg-cyan-300"
-        },
-        {
-            title: "Researcher",
-            company: "Lab of Bioproduction and Machinery",
-            date: "April 2025 -- April 2026",
-            description: "Developed monitoring systems for piglets and conducted full-stack development workshops.",
-            color: "bg-pink-300"
-        },
-        {
-            title: "Undergraduate Researcher",
-            company: "National Science and Technology Council",
-            date: "July 2023 -- Feb. 2024",
-            description: "Developed ML & CV solutions for lameness detection in the pig farming industry.",
-            color: "bg-yellow-300"
-        }
-    ];
+import { aboutData } from '@/data/portfolio';
 
-    const education = [
-        {
-            degree: "Dual Degree Program (Master) in Biomechatronics Engineering & Agro-Bioresources Sciences",
-            school: "National Taiwan University & University of Tsukuba",
-            date: "Sep. 2024 -- June 2027 (Expected)",
-            color: "bg-purple-300"
-        },
-        {
-            degree: "Bachelor of Science in Biomechatronics Engineering",
-            school: "National Taiwan University",
-            date: "Sept. 2020 -- June 2024",
-            color: "bg-green-300"
-        }
-    ];
+export default function About() {
+    const { description, experiences, education } = aboutData;
 
     return (
         <div className="flex flex-col gap-8 text-black p-2 pb-6">
@@ -48,7 +13,7 @@ export default function About() {
                 <h2 className="text-3xl font-black mb-2 uppercase border-b-4 border-black pb-2 inline-block self-start">About Me</h2>
                 <div className="text-lg font-bold leading-relaxed bg-white border-2 border-black p-4 shadow-[4px_4px_0_0_#000]">
                     <p>
-                        I am a researcher and engineer with a deep passion for applying AI and computer vision to solve real-world problems. With experience spanning full-stack development, server administration, and agricultural robotics, I strive to bridge the gap between research algorithms and deployable solutions.
+                        {description}
                     </p>
                 </div>
             </div>

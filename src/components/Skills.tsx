@@ -1,28 +1,8 @@
 'use client';
 
+import { skillsData as skillCategories } from '@/data/portfolio';
+
 export default function Skills() {
-    const skillCategories = [
-        {
-            title: "AI & Computing",
-            skills: ["Pytorch", "Tensorflow", "CUDA", "HuggingFace", "TensorRT"],
-            color: "bg-pink-400"
-        },
-        {
-            title: "Software Development",
-            skills: ["Python", "C++", "Java", "Swift", "JavaScript", "HTML/CSS", "React", "Next.js"],
-            color: "bg-yellow-400"
-        },
-        {
-            title: "Infrastructure & Data",
-            skills: ["Linux", "Docker", "Kubernetes", "Git", "MySQL", "PostgreSQL", "MongoDB", "Arduino", "Raspberry Pi"],
-            color: "bg-cyan-400"
-        },
-        {
-            title: "Language",
-            skills: ["Mandarin(Native)", "English(Fluent, TOEIC L&R 860)", "Japanese(Fluent, N1)"],
-            color: "bg-purple-400"
-        }
-    ];
 
     return (
         <div className="flex flex-col gap-6 text-black pb-4">
