@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Taskbar from '@/components/Taskbar';
 import DesktopIcon from '@/components/DesktopIcon';
 import Window from '@/components/Window';
@@ -19,12 +19,20 @@ export default function Home() {
   const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
   const [isStartAnimating, setIsStartAnimating] = useState(false);
 
+  useEffect(() => {
+    setIsStartAnimating(true);
+    const timer = setTimeout(() => {
+      setIsStartAnimating(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleStartClick = () => {
     if (isStartAnimating) return;
     setIsStartAnimating(true);
     setTimeout(() => {
       setIsStartAnimating(false);
-    }, 1500);
+    }, 3000);
   };
 
   const closeWindow = (id: string) => {
