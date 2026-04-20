@@ -13,6 +13,8 @@ import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 
+import PixelRoom from '@/components/PixelRoom';
+
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
@@ -95,17 +97,25 @@ export default function Home() {
       <ClickSound />
       <StartAnimation isAnimating={isStartAnimating} />
       {/* Desktop Workspace */}
-      <div className="flex flex-col gap-6 items-start h-full pb-16">
-        {apps.map((app) => (
-          <DesktopIcon
-            key={app.id}
-            id={app.id}
-            name={app.name}
-            icon={app.icon}
-            color={app.color}
-            onClick={handleDesktopIconClick}
-          />
-        ))}
+      <div className="flex flex-row h-full pb-16 gap-6">
+        {/* Left side: Icons */}
+        <div className="flex flex-col gap-6 items-start w-[120px] shrink-0">
+          {apps.map((app) => (
+            <DesktopIcon
+              key={app.id}
+              id={app.id}
+              name={app.name}
+              icon={app.icon}
+              color={app.color}
+              onClick={handleDesktopIconClick}
+            />
+          ))}
+        </div>
+        
+        {/* Right side: Retro Area (Directly on Desktop) */}
+        <div className="flex-1 h-full hidden lg:block relative -m-6 ml-0">
+          <PixelRoom />
+        </div>
       </div>
 
       {/* Render open windows here */}
