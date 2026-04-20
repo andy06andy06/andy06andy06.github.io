@@ -20,7 +20,7 @@ export default function StartAnimation({ isAnimating }: StartAnimationProps) {
                             style={{ backgroundColor: color }}
                             initial={{ y: '-100%' }}
                             animate={{ y: '0%' }}
-                            exit={{ 
+                            exit={{
                                 y: '100%',
                                 transition: {
                                     duration: 0.6,
@@ -65,7 +65,7 @@ export default function StartAnimation({ isAnimating }: StartAnimationProps) {
                                 className="text-5xl md:text-8xl font-black uppercase text-center px-4 relative"
                                 style={{
                                     color: '#ffffff',
-                                    WebkitTextStroke: '2px #000',
+                                    WebkitTextStroke: '6px #000',
                                     paintOrder: 'stroke fill',
                                 }}
                             >

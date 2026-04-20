@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Taskbar from '@/components/Taskbar';
 import DesktopIcon from '@/components/DesktopIcon';
 import Window from '@/components/Window';
@@ -97,9 +97,9 @@ export default function Home() {
       <ClickSound />
       <StartAnimation isAnimating={isStartAnimating} />
       {/* Desktop Workspace */}
-      <div className="flex flex-row h-full pb-16 gap-6">
-        {/* Left side: Icons */}
-        <div className="flex flex-col gap-6 items-start w-[120px] shrink-0">
+      <div className="relative h-full pb-16">
+        {/* Icons */}
+        <div className="relative z-[2] flex flex-col gap-6 items-start w-[120px] shrink-0">
           {apps.map((app) => (
             <DesktopIcon
               key={app.id}
@@ -111,10 +111,10 @@ export default function Home() {
             />
           ))}
         </div>
-        
-        {/* Right side: Retro Area (Directly on Desktop) */}
-        <div className="flex-1 h-full hidden lg:block relative -m-6 ml-0">
-          <PixelRoom />
+
+        {/* Pixel character overlay (covers entire desktop) */}
+        <div className="hidden lg:block">
+          <PixelRoom onIconInteract={handleDesktopIconClick} />
         </div>
       </div>
 
