@@ -6,69 +6,43 @@ import Link from 'next/link';
 export default function Projects() {
     const projects = [
         {
-            title: "Livestock Monitoring Systems",
-            category: "Research",
-            description: "Developed vision-based lameness detection using U-Net and pose estimation, and piglet behavior analysis with YOLOv11 and EfficientNet-LSTM.",
-            tags: ["PyTorch", "Computer Vision", "Deep Learning"],
-            link: "#",
-            color: "bg-cyan-100"
-        },
-        {
-            title: "National Field Robot",
-            category: "Robotics",
-            description: "Directed a software team integrating CV into an autonomous field robot using YOLOv7 for fruit detection (98.3% mAP).",
-            tags: ["Robotics", "Arduino", "Python"],
-            link: "#",
-            color: "bg-pink-100"
-        },
-        {
             title: "Wordle Online Game",
             category: "Web Dev",
-            description: "Built full-stack multiplayer web app with dual-player mode using Next.js, Express, PostgreSQL, and WebSockets.",
-            tags: ["Next.js", "Express", "WebSocket"],
+            description: "Developed a full-stack web application using Express serving as RESTful API with Next.js as the framework. Implemented a dual-player mode using WebSocket, where players guess each other's question within limited time.",
+            tags: ["Next.js", "Express.js", "PostgresSQL", "Tailwind CSS", "WebSocket"],
             link: "#",
             color: "bg-yellow-100"
         },
         {
-            title: "Remote Control Vacuum Car",
+            title: "National Field Robot",
             category: "Robotics",
-            description: "Developed an autonomous vacuum cleaning robot capable of navigating obstacles using Arduino and Raspberry Pi.",
-            tags: ["Raspberry Pi", "Arduino", "OpenCV"],
+            description: "Applied YOLOv7 for fruit detection (98.3% mAP, 99.1% IOU), enabling robust performance in outdoor field. Managed a 4-person team to deploy computer vision for an autonomous robot.",
+            tags: ["YOLOv7", "OpenCV", "Python", "PySerial", "Arduino"],
             link: "#",
-            color: "bg-purple-100"
+            color: "bg-pink-100"
         },
         {
             title: "Pineapple Stage Classifier",
             category: "Machine Learning",
-            description: "Trained a ResNet-18 model to classify pineapple growth stages with an accuracy of 99.7%.",
-            tags: ["ResNet", "PyTorch", "Python"],
+            description: "Trained a ResNet-18 model to classify different growth stages of pineapples which achieved an accuracy of 99.7%. Analyzed the result of the classifier and organized the findings using matplotlib and confusion matrix.",
+            tags: ["Python", "Pytorch", "ResNet", "OpenCV"],
             link: "#",
             color: "bg-green-100"
-        }
-    ];
-
-    const publications = [
-        {
-            title: "Frontiers in Animal Science",
-            role: "Co-author",
-            description: "Monitoring the lactation-related behaviors of sows and their piglets in farrowing crates using deep learning."
         },
         {
-            title: "XX CIGR World Congress 2026, Turin",
-            role: "Oral Presentation",
-            description: "Lameness detection of gilts based on posture analysis using deep learning."
-        },
-        {
-            title: "11th ISMAB, Bali",
-            role: "Oral Presentation",
-            description: "A pig foot detection and tracking approach for gait evaluation."
+            title: "Remote Control Vacuum Car",
+            category: "Robotics",
+            description: "Developed an autonomous vacuum cleaning robot capable of navigating obstacles and completing cleaning tasks. Designed and implemented an Arduino/Raspberry Pi-based control architecture for vacuum robot navigation.",
+            tags: ["Python", "OpenCV", "Arduino", "Raspberry Pi"],
+            link: "#",
+            color: "bg-purple-100"
         }
     ];
 
     return (
         <div className="flex flex-col gap-8 text-black pb-4">
             <div>
-                <h2 className="text-3xl font-black mb-6 uppercase border-b-4 border-black pb-2 inline-block">Projects & Research</h2>
+                <h2 className="text-3xl font-black mb-6 uppercase border-b-4 border-black pb-2 inline-block">Projects & Competition</h2>
 
                 <div className="grid md:grid-cols-2 gap-6">
                     {projects.map((project, index) => (
@@ -96,23 +70,6 @@ export default function Projects() {
                                         {tag}
                                     </span>
                                 ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="border-4 border-black p-6 bg-white shadow-[6px_6px_0_0_#000]">
-                <h3 className="text-2xl font-black mb-6 uppercase">Publications & Talks</h3>
-                <div className="space-y-6">
-                    {publications.map((pub, index) => (
-                        <div key={index} className="flex gap-4 items-start border-l-4 border-[var(--primary-cyan)] pl-4">
-                            <div>
-                                <h4 className="text-lg font-black uppercase">{pub.title}</h4>
-                                <span className="inline-block bg-[#fde047] border-2 border-black px-2 py-0.5 text-xs font-bold uppercase my-1">
-                                    {pub.role}
-                                </span>
-                                <p className="font-bold text-sm">{pub.description}</p>
                             </div>
                         </div>
                     ))}

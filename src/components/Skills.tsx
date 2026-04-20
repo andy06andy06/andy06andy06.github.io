@@ -3,23 +3,23 @@
 export default function Skills() {
     const skillCategories = [
         {
-            title: "AI & Machine Learning",
-            skills: ["Python", "PyTorch", "Computer Vision", "YOLO", "U-Net", "LSTM", "Deep Learning"],
+            title: "AI & Computing",
+            skills: ["Pytorch", "Tensorflow", "CUDA", "HuggingFace", "TensorRT"],
             color: "bg-pink-400"
         },
         {
-            title: "Web Development",
-            skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Full-stack"],
+            title: "Software Development",
+            skills: ["Python", "C++", "Java", "Swift", "JavaScript", "HTML/CSS", "React", "Next.js"],
             color: "bg-yellow-400"
         },
         {
-            title: "Infrastructure & DevOps",
-            skills: ["Docker", "Kubernetes", "Linux", "Server Admin"],
+            title: "Infrastructure & Data",
+            skills: ["Linux", "Docker", "Kubernetes", "Git", "MySQL", "PostgreSQL", "MongoDB", "Arduino", "Raspberry Pi"],
             color: "bg-cyan-400"
         },
         {
-            title: "Hardware & Robotics",
-            skills: ["Arduino", "Raspberry Pi", "Autonomous Systems", "Robotics"],
+            title: "Language",
+            skills: ["Mandarin(Native)", "English(Fluent, TOEIC L&R 860)", "Japanese(Fluent, N1)"],
             color: "bg-purple-400"
         }
     ];

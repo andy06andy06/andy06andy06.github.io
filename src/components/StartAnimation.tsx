@@ -43,7 +43,13 @@ export default function StartAnimation({ isAnimating }: StartAnimationProps) {
                         exit={{ opacity: 0, scale: 1.5, transition: { delay: 0 } }}
                         transition={{ delay: 0.4, duration: 0.4 }}
                     >
-                        <h1 className="text-white text-5xl md:text-8xl font-black uppercase tracking-tighter mix-blend-difference drop-shadow-[4px_4px_0_#fff] text-center px-4">
+                        <h1 
+                            className="text-5xl md:text-8xl font-black uppercase text-center px-4 drop-shadow-[4px_4px_0_#3b82f6] md:drop-shadow-[8px_8px_0_#3b82f6] hover:-translate-y-2 transition-transform cursor-default"
+                            style={{ 
+                                color: '#ffffff',
+                                textShadow: '-2px -2px 0 #000, 0 -2px 0 #000, 2px -2px 0 #000, 2px 0 0 #000, 2px 2px 0 #000, 0 2px 0 #000, -2px 2px 0 #000, -2px 0 0 #000',
+                            }}
+                        >
                             Cheng En Chiang
                         </h1>
                     </motion.div>
