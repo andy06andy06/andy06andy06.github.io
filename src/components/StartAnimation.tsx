@@ -43,15 +43,35 @@ export default function StartAnimation({ isAnimating }: StartAnimationProps) {
                         exit={{ opacity: 0, scale: 1.5, transition: { delay: 0 } }}
                         transition={{ delay: 0.4, duration: 0.4 }}
                     >
-                        <h1 
-                            className="text-5xl md:text-8xl font-black uppercase text-center px-4 drop-shadow-[4px_4px_0_#3b82f6] md:drop-shadow-[8px_8px_0_#3b82f6] hover:-translate-y-2 transition-transform cursor-default"
-                            style={{ 
-                                color: '#ffffff',
-                                textShadow: '-2px -2px 0 #000, 0 -2px 0 #000, 2px -2px 0 #000, 2px 0 0 #000, 2px 2px 0 #000, 0 2px 0 #000, -2px 2px 0 #000, -2px 0 0 #000',
-                            }}
-                        >
-                            Cheng En Chiang
-                        </h1>
+                        <div className="relative hover:-translate-y-2 transition-transform cursor-default">
+                            {/* 3D blue block layers (back to front) */}
+                            {Array.from({ length: 10 }, (_, i) => 10 - i).map((offset) => (
+                                <h1
+                                    key={offset}
+                                    className="text-5xl md:text-8xl font-black uppercase text-center px-4 absolute inset-0"
+                                    style={{
+                                        color: offset <= 2 ? '#1e3a8a' : '#3b82f6',
+                                        WebkitTextStroke: '2px #1e3a8a',
+                                        paintOrder: 'stroke fill',
+                                        transform: `translate(${offset}px, ${offset}px)`,
+                                    }}
+                                    aria-hidden="true"
+                                >
+                                    Cheng En Chiang
+                                </h1>
+                            ))}
+                            {/* Front face */}
+                            <h1
+                                className="text-5xl md:text-8xl font-black uppercase text-center px-4 relative"
+                                style={{
+                                    color: '#ffffff',
+                                    WebkitTextStroke: '2px #000',
+                                    paintOrder: 'stroke fill',
+                                }}
+                            >
+                                Cheng En Chiang
+                            </h1>
+                        </div>
                     </motion.div>
                 </div>
             )}
