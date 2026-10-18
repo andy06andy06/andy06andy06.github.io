@@ -135,6 +135,8 @@ const PixelRoom = forwardRef<PixelRoomHandle, PixelRoomProps>(({ onIconInteract 
             transition: 'none',
           }}
         >
+          {/* Inline data-URI sprite: next/image would add nothing here */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={characterSVG}
             className={`w-full h-full drop-shadow-xl ${isMoving ? 'animate-bounce' : ''}`}

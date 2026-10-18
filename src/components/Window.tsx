@@ -79,6 +79,8 @@ export default function Window({
         window.addEventListener('pointerup', onPointerUp);
     };
 
+    // Depend on the primitives so a new defaultPosition object each render doesn't re-run this
+    const { x: defaultX, y: defaultY } = defaultPosition;
     React.useEffect(() => {
         if (typeof window !== 'undefined') {
             const handleResize = () => {
@@ -86,7 +88,7 @@ export default function Window({
                 if (isMobile) {
                     setPosition({ x: 16, y: 16 });
                 } else {
-                    setPosition(defaultPosition);
+                    setPosition({ x: defaultX, y: defaultY });
                 }
             };
             
@@ -96,7 +98,7 @@ export default function Window({
             window.addEventListener('resize', handleResize);
             return () => window.removeEventListener('resize', handleResize);
         }
-    }, [defaultPosition.x, defaultPosition.y]);
+    }, [defaultX, defaultY]);
 
     if (!isOpen) return null;
 

@@ -8,9 +8,9 @@ export default function ClickSound() {
     useEffect(() => {
         const playSound = () => {
             if (!audioCtxRef.current) {
-                const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-                if (!AudioContext) return;
-                audioCtxRef.current = new AudioContext();
+                const AudioContextCtor = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+                if (!AudioContextCtor) return;
+                audioCtxRef.current = new AudioContextCtor();
             }
 
             const ctx = audioCtxRef.current;
