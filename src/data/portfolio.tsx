@@ -1,6 +1,11 @@
 import React from 'react';
 import { User, Phone, Mail, Github } from 'lucide-react';
 
+export const profile = {
+    name: "Cheng-En Chiang",
+    tagline: "ML & CV Engineer · Researcher",
+};
+
 export const aboutData = {
     description: "I am a researcher and engineer with a deep passion for applying AI and computer vision to solve real-world problems. With experience spanning full-stack development, server administration, and agricultural robotics, I strive to bridge the gap between research algorithms and deployable solutions.",
     experiences: [

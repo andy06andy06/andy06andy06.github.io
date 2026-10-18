@@ -13,21 +13,37 @@ import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 
-import PixelRoom from '@/components/PixelRoom';
+import PixelRoom, { PixelRoomHandle } from '@/components/PixelRoom';
+import Text3D from '@/components/Text3D';
+import { profile } from '@/data/portfolio';
+
+// Vertical gap between the bottom of an icon (or the icon row) and where the character stands
+const CHARACTER_GAP = 48;
 
 export default function Home() {
   const [openWindows, setOpenWindows] = useState<string[]>([]);
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
   const [minimizedWindows, setMinimizedWindows] = useState<string[]>([]);
-  const [isStartAnimating, setIsStartAnimating] = useState(false);
+  // Starts true so the character's entry walk waits for the intro to finish
+  const [isStartAnimating, setIsStartAnimating] = useState(true);
+  const pixelRoomRef = useRef<PixelRoomHandle>(null);
+  const iconRowRef = useRef<HTMLDivElement>(null);
+  const hasCharacterEnteredRef = useRef(false);
 
   useEffect(() => {
-    setIsStartAnimating(true);
     const timer = setTimeout(() => {
       setIsStartAnimating(false);
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  // Once the intro clears, the character walks in from the left and stops below the icon row
+  useEffect(() => {
+    if (isStartAnimating || hasCharacterEnteredRef.current || !iconRowRef.current) return;
+    hasCharacterEnteredRef.current = true;
+    const rect = iconRowRef.current.getBoundingClientRect();
+    pixelRoomRef.current?.walkTo(rect.left + rect.width / 2, rect.bottom + CHARACTER_GAP);
+  }, [isStartAnimating]);
 
   const handleStartClick = () => {
     if (isStartAnimating) return;
@@ -48,14 +64,19 @@ export default function Home() {
     }
   };
 
-  const handleDesktopIconClick = (id: string) => {
-    if (!openWindows.includes(id)) {
-      setOpenWindows([...openWindows, id]);
-      setMinimizedWindows(minimizedWindows.filter((win) => win !== id));
-      setActiveWindow(id);
-    } else {
-      bringToFront(id);
-    }
+  const openWindow = (id: string) => {
+    setOpenWindows((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    setMinimizedWindows((prev) => prev.filter((win) => win !== id));
+    setActiveWindow(id);
+  };
+
+  // On large screens the character walks over first and opens the window on arrival;
+  // when the pixel room is hidden (small screens) the window opens right away
+  const handleDesktopIconClick = (id: string, el: HTMLElement) => {
+    const rect = el.getBoundingClientRect();
+    const walked = pixelRoomRef.current?.walkTo(rect.left + rect.width / 2, rect.bottom + CHARACTER_GAP, id);
+    if (walked) hasCharacterEnteredRef.current = true; // an icon click during the intro counts as the entrance
+    else openWindow(id);
   };
 
   const bringToFront = (id: string) => {
@@ -86,10 +107,10 @@ export default function Home() {
   };
 
   const apps = [
-    { id: 'about', name: 'About.txt', icon: User, color: '#f472b6' },   // primary-pink
-    { id: 'projects', name: 'Projects.exe', icon: Code2, color: '#2dd4bf' }, // primary-cyan
-    { id: 'skills', name: 'Skills.cfg', icon: Wrench, color: '#fde047' }, // primary-yellow
-    { id: 'contact', name: 'Contact.mail', icon: Mail, color: '#c084fc' }, // primary-purple
+    { id: 'about', name: 'About.txt', subtitle: 'Who I am', icon: User, color: 'var(--primary-pink)' },
+    { id: 'projects', name: 'Projects.exe', subtitle: "Things I've built", icon: Code2, color: 'var(--primary-cyan)' },
+    { id: 'skills', name: 'Skills.cfg', subtitle: 'Tech stack', icon: Wrench, color: 'var(--primary-yellow)' },
+    { id: 'contact', name: 'Contact.mail', subtitle: 'Say hi', icon: Mail, color: 'var(--primary-purple)' },
   ];
 
   return (
@@ -97,24 +118,34 @@ export default function Home() {
       <ClickSound />
       <StartAnimation isAnimating={isStartAnimating} />
       {/* Desktop Workspace */}
-      <div className="relative h-full pb-16">
-        {/* Icons */}
-        <div className="relative z-[2] flex flex-col gap-6 items-start w-[120px] shrink-0">
-          {apps.map((app) => (
-            <DesktopIcon
-              key={app.id}
-              id={app.id}
-              name={app.name}
-              icon={app.icon}
-              color={app.color}
-              onClick={handleDesktopIconClick}
-            />
-          ))}
+      <div className="relative h-full pb-16 overflow-y-auto">
+        {/* Hero: name + icons, centered. Empty space passes clicks through to the pixel room below */}
+        <div className="relative z-[2] min-h-full flex flex-col items-center justify-center gap-8 lg:gap-12 py-4 pointer-events-none">
+          <div className="flex flex-col items-center gap-4 lg:gap-6">
+            <Text3D text={profile.name} depth={6} strokeWidth={5} className="text-3xl sm:text-5xl lg:text-7xl" />
+            <p className="border-2 border-black bg-white px-3 py-1 text-sm lg:text-lg font-bold shadow-[4px_4px_0_0_#000]">
+              {profile.tagline}
+            </p>
+          </div>
+
+          <div ref={iconRowRef} className="grid grid-cols-2 lg:flex gap-4 lg:gap-10">
+            {apps.map((app) => (
+              <DesktopIcon
+                key={app.id}
+                id={app.id}
+                name={app.name}
+                subtitle={app.subtitle}
+                icon={app.icon}
+                color={app.color}
+                onClick={handleDesktopIconClick}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Pixel character overlay (covers entire desktop) */}
         <div className="hidden lg:block">
-          <PixelRoom onIconInteract={handleDesktopIconClick} />
+          <PixelRoom ref={pixelRoomRef} onIconInteract={openWindow} />
         </div>
       </div>
 
@@ -128,7 +159,7 @@ export default function Home() {
         onClose={closeWindow}
         onMinimize={minimizeWindow}
         onBringToFront={bringToFront}
-        headerColor="#f472b6"
+        headerColor="var(--primary-pink)"
         defaultPosition={{ x: 100, y: 50 }}
         className="w-[90vw] md:w-[750px] h-[75vh] md:h-[500px]"
       >
@@ -146,7 +177,7 @@ export default function Home() {
         onClose={closeWindow}
         onMinimize={minimizeWindow}
         onBringToFront={bringToFront}
-        headerColor="#2dd4bf"
+        headerColor="var(--primary-cyan)"
         defaultPosition={{ x: 150, y: 100 }}
         className="w-[90vw] md:w-[800px] h-[75vh] md:h-[600px]"
       >
@@ -164,7 +195,7 @@ export default function Home() {
         onClose={closeWindow}
         onMinimize={minimizeWindow}
         onBringToFront={bringToFront}
-        headerColor="#fde047"
+        headerColor="var(--primary-yellow)"
         defaultPosition={{ x: 200, y: 150 }}
         className="w-[90vw] md:w-[700px] h-[75vh] md:h-[450px]"
       >
@@ -182,7 +213,7 @@ export default function Home() {
         onClose={closeWindow}
         onMinimize={minimizeWindow}
         onBringToFront={bringToFront}
-        headerColor="#c084fc"
+        headerColor="var(--primary-purple)"
         defaultPosition={{ x: 250, y: 200 }}
         className="w-[90vw] md:w-[450px] h-[75vh] md:h-[450px]"
       >

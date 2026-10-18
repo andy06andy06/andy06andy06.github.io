@@ -31,7 +31,7 @@ export default function Window({
     onClose,
     onMinimize,
     onBringToFront,
-    headerColor = '#fde047', // Default to yellow
+    headerColor = 'var(--primary-yellow)',
     className,
     defaultPosition = { x: 50, y: 50 }
 }: WindowProps) {
