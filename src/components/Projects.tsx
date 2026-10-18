@@ -1,6 +1,6 @@
 'use client';
 
-import { ExternalLink, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
 import Link from 'next/link';
 
 import { projectsData as projects } from '@/data/portfolio';

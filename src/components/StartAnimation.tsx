@@ -1,13 +1,15 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import Text3D from '@/components/Text3D';
+import { profile } from '@/data/portfolio';
 
 interface StartAnimationProps {
     isAnimating: boolean;
 }
 
 export default function StartAnimation({ isAnimating }: StartAnimationProps) {
-    const colors = ['#f472b6', '#2dd4bf', '#fde047', '#c084fc', '#000000'];
+    const colors = ['var(--primary-pink)', 'var(--primary-cyan)', 'var(--primary-yellow)', 'var(--primary-purple)', '#000000'];
 
     return (
         <AnimatePresence>
@@ -44,33 +46,7 @@ export default function StartAnimation({ isAnimating }: StartAnimationProps) {
                         transition={{ delay: 0.4, duration: 0.4 }}
                     >
                         <div className="relative hover:-translate-y-2 transition-transform cursor-default">
-                            {/* 3D blue block layers (back to front) */}
-                            {Array.from({ length: 10 }, (_, i) => 10 - i).map((offset) => (
-                                <h1
-                                    key={offset}
-                                    className="text-5xl md:text-8xl font-black uppercase text-center px-4 absolute inset-0"
-                                    style={{
-                                        color: offset <= 2 ? '#1e3a8a' : '#3b82f6',
-                                        WebkitTextStroke: '2px #1e3a8a',
-                                        paintOrder: 'stroke fill',
-                                        transform: `translate(${offset}px, ${offset}px)`,
-                                    }}
-                                    aria-hidden="true"
-                                >
-                                    Cheng En Chiang
-                                </h1>
-                            ))}
-                            {/* Front face */}
-                            <h1
-                                className="text-5xl md:text-8xl font-black uppercase text-center px-4 relative"
-                                style={{
-                                    color: '#ffffff',
-                                    WebkitTextStroke: '6px #000',
-                                    paintOrder: 'stroke fill',
-                                }}
-                            >
-                                Cheng En Chiang
-                            </h1>
+                            <Text3D as="p" text={profile.name} className="text-5xl md:text-8xl px-4" />
                         </div>
                     </motion.div>
                 </div>
