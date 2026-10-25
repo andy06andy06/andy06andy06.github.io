@@ -3,45 +3,59 @@ import { User, Phone, Mail, Github } from 'lucide-react';
 
 export const profile = {
     name: "Cheng-En Chiang",
-    tagline: "ML & CV Engineer · Researcher",
+    tagline: "AI Research Engineer · ML & CV",
 };
 
 export const aboutData = {
-    description: "I am a researcher and engineer with a deep passion for applying AI and computer vision to solve real-world problems. With experience spanning full-stack development, server administration, and agricultural robotics, I strive to bridge the gap between research algorithms and deployable solutions.",
+    description: "I am an AI research engineer with a deep passion for applying AI and computer vision to solve real-world problems. With experience spanning computer vision for precision livestock farming, GPU cluster and Kubernetes infrastructure, and full-stack development, I strive to bridge the gap between research algorithms and deployable solutions.",
     experiences: [
         {
-            title: "Researcher, Server Administrator",
+            title: "AI Research Engineer",
             company: "Lab of Machine Learning and Machine Vision",
-            date: "July 2023 -- Present",
-            description: "Developed pose estimation systems and administered high-performance GPU clusters.",
+            date: "Jul. 2023 – Present",
+            description: "Developed a pose estimation system using EfficientNet to track 16 keypoints with 3.75 pixels RMSE, and achieved 91% accuracy in classifying lameness across 32 pigs by integrating gait features with an SVM classifier.",
             color: "bg-cyan-300"
         },
         {
-            title: "Researcher",
+            title: "Server Administrator",
+            company: "Lab of Machine Learning and Machine Vision",
+            date: "Jul. 2023 – Apr. 2025",
+            description: "Orchestrated 6 high-performance GPU clusters using Kubernetes, enabling scalable compute resources and secure remote access for 50+ researchers across Taiwan and Japan.",
+            color: "bg-green-300"
+        },
+        {
+            title: "AI Research Engineer",
             company: "Lab of Bioproduction and Machinery",
-            date: "April 2025 -- April 2026",
-            description: "Developed monitoring systems for piglets and conducted full-stack development workshops.",
+            date: "Apr. 2025 – Apr. 2026",
+            description: "Developed a behavior monitoring system for piglets using YOLOv11 and EfficientNet-LSTM, achieving 83.1% MOTA in tracking and 93.0% accuracy in behavior classification. Conducted full-stack development workshops for lab members and a partner university in the Philippines.",
             color: "bg-pink-300"
         },
         {
-            title: "Undergraduate Researcher",
+            title: "Undergraduate Research Engineer",
             company: "National Science and Technology Council",
-            date: "July 2023 -- Feb. 2024",
-            description: "Developed ML & CV solutions for lameness detection in the pig farming industry.",
+            date: "Jul. 2023 – Feb. 2024",
+            description: "Developed ML & CV solutions for the pig farming industry, designing a CV-based lameness detection system that replaces a 40,000 USD pressure mat method, in collaboration with farm staff.",
             color: "bg-yellow-300"
+        },
+        {
+            title: "Teaching Assistant",
+            company: "National Taiwan University",
+            date: "Jan. 2024 – Jun. 2024",
+            description: "Assigned as a TA for the data science course and designed a programming assignment for 40+ students.",
+            color: "bg-purple-300"
         }
     ],
     education: [
         {
-            degree: "Dual Degree Program (Master) in Biomechatronics Engineering & Agro-Bioresources Sciences",
+            degree: "Dual Degree Program (Master) in Biomechatronics Engineering & Agro-Bioresources Sciences and Technology",
             school: "National Taiwan University & University of Tsukuba",
-            date: "Sep. 2024 -- June 2027 (Expected)",
+            date: "Sep. 2024 – Jun. 2027 (Expected)",
             color: "bg-purple-300"
         },
         {
             degree: "Bachelor of Science in Biomechatronics Engineering",
             school: "National Taiwan University",
-            date: "Sept. 2020 -- June 2024",
+            date: "Sep. 2020 – Jun. 2024",
             color: "bg-green-300"
         }
     ]
@@ -49,10 +63,18 @@ export const aboutData = {
 
 export const projectsData = [
     {
+        title: "AI-Assisted Observability Stack",
+        category: "DevOps",
+        description: "Built a Kubernetes observability stack with Prometheus, Grafana, Alertmanager, and OpenSearch with Fluent Bit, routing alerts to Mattermost and exposing services through Traefik and Gateway API. Designed a read-only AI agent with scoped RBAC and output masking, validated by 35 automated security tests.",
+        tags: ["Kubernetes", "Claude Code", "Prometheus", "Grafana", "OpenSearch"],
+        link: "#",
+        color: "bg-cyan-100"
+    },
+    {
         title: "Wordle Online Game",
         category: "Web Dev",
-        description: "Developed a full-stack web application using Express serving as RESTful API with Next.js as the framework. Implemented a dual-player mode using WebSocket, where players guess each other's question within limited time.",
-        tags: ["Next.js", "Express.js", "PostgresSQL", "Tailwind CSS", "WebSocket"],
+        description: "Built a Next.js and PostgreSQL platform using Drizzle ORM to manage game logic and player statistics. Integrated NextAuth.js for authentication and Zod for strict API schema validation to ensure system stability.",
+        tags: ["Next.js", "Node.js", "PostgreSQL", "Socket.io"],
         link: "#",
         color: "bg-yellow-100"
     },
@@ -85,17 +107,17 @@ export const projectsData = [
 export const skillsData = [
     {
         title: "AI & Computing",
-        skills: ["Pytorch", "Tensorflow", "CUDA", "HuggingFace", "TensorRT"],
+        skills: ["Pytorch", "Tensorflow", "CUDA", "Nsight", "HuggingFace", "TensorRT"],
         color: "bg-pink-400"
     },
     {
-        title: "Software Development",
-        skills: ["Python", "C++", "Java", "Swift", "JavaScript", "HTML/CSS", "React", "Next.js"],
+        title: "Development",
+        skills: ["Python", "C++", "C", "Java", "Swift", "JavaScript", "HTML/CSS", "React", "Next.js", "Arduino", "Raspberry Pi"],
         color: "bg-yellow-400"
     },
     {
         title: "Infrastructure & Data",
-        skills: ["Linux", "Docker", "Kubernetes", "Git", "MySQL", "PostgreSQL", "MongoDB", "Arduino", "Raspberry Pi"],
+        skills: ["Linux", "Docker", "Kubernetes", "Prometheus", "OpenSearch", "Grafana", "Git", "PostgreSQL", "MongoDB"],
         color: "bg-cyan-400"
     },
     {
