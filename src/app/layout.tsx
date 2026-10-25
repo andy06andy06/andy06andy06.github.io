@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Cheng-En Chiang | Machine Learning Engineer",
-  description: "Portfolio of Cheng-En Chiang, a Machine Learning Engineer and Researcher specializing in computer vision, deep learning, and autonomous systems.",
+  title: "Cheng-En Chiang | AI Research Engineer",
+  description: "Portfolio of Cheng-En Chiang, an AI Research Engineer specializing in computer vision, deep learning, and ML infrastructure.",
 };
 
 export default function RootLayout({

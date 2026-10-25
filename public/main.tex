@@ -19,6 +19,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{multicol}
 \input{glyphtounicode}
 
 
@@ -127,61 +128,60 @@
 %-----------Work EXPERIENCE-----------
 \section{Work Experience}
   \resumeSubHeadingListStart
-    
+
     \resumeSubheading
       {Lab of Machine Learning and Machine Vision}{}
-      {Researcher, Server Administrator}{July 2023 -- Present}
+      {AI Research Engineer}{Jul. 2023 -- Present}
       \resumeItemListStart
         \resumeItem{Developed a pose estimation system using EfficientNet to track \textbf{16 keypoints} with \textbf{3.75 pixels RMSE}, and achieved \textbf{91\% accuracy} in classifying lameness across 32 pigs by integrating gait features with an SVM classifier.}
-        \resumeItem{Administered a high-performance GPU cluster (6x NVIDIA RTX A6000) using Docker and Kubernetes, providing scalable computing resources and remote access for researchers at the University of Tsukuba.}
-        \resumeItem{Presented my research in English at 3 international and 2 domestic conferences.}
       \resumeItemListEnd
-      \resumeSubheading
+    \resumeSubSubheading
+      {Server Administrator}{Jul. 2023 -- Apr. 2025}
+      \resumeItemListStart
+        \resumeItem{Orchestrated 6 high-performance GPU clusters using Kubernetes, enabling scalable compute resources and secure remote access for 50+ researchers across Taiwan and Japan.}
+      \resumeItemListEnd
+
+    \resumeSubheading
       {Lab of Bioproduction and Machinery}{}
-      {Researcher}{April 2025 -- April 2026}
+      {AI Research Engineer}{Apr. 2025 -- Apr. 2026}
       \resumeItemListStart
         \resumeItem{Developed a behaviors monitoring system to observe piglets using YOLOv11 and EfficientNet-LSTM, achieved performance in detection, tracking, and behavior classification with \textbf{83.1\% MOTA}, and \textbf{93.0\% accuracy}.}
         \resumeItem{Conducted \textbf{full-stack development} workshops for lab members and a partner university in the Philippines, bridging the gap between research algorithms and deployable web applications.}
       \resumeItemListEnd
-      \resumeSubheading
+
+    \resumeSubheading
       {National Science and Technology Council}{}
-      {Undergraduate Researcher}{July 2023 -- Feb. 2024}
+      {Undergraduate Research Engineer}{Jul. 2023 -- Feb. 2024}
       \resumeItemListStart
-      \resumeItem{Developed machine learning \& computer vision solutions for pig farming industry.}
-      \resumeItem{Designed a CV method to establish a lameness detection system, replacing a 40,000 USD pressure mat method.}
-      \resumeItem{Collaborated with farm staff to identify monitoring pain points and adapt system design using domain knowledge.}
+        \resumeItem{Developed machine learning \& computer vision solutions for pig farming industry.}
+        \resumeItem{Designed a CV method to establish a lameness detection system, replacing a 40,000 USD pressure mat method.}
+        \resumeItem{Collaborated with farm staff to identify monitoring pain points and adapt system design using domain knowledge.}
       \resumeItemListEnd
-   \resumeSubHeadingListEnd
+
+    \resumeSubheading
+      {National Taiwan University}{}
+      {Teaching Assistant}{Jan. 2024 -- Jun. 2024}
+      \resumeItemListStart
+        \resumeItem{Assigned as a TA for data science course and designed a programming assignment for 40+ students.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
 %--------------------------------------------
 
 %-----------PROJECTS-----------
-\section{Projects \& Competition}
+\section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{Wordle Online Game} $|$ \emph{Next.js, Express.js, PostgresSQL, Tailwind CSS, WebSocket}}{}
+          {\textbf{AI-Assisted Observability Stack for Log and Metric Analysis} $|$ \emph{Kubernetes, Claude Code, Prometheus, OpenSearch}}{}
           \resumeItemListStart
-            \resumeItem{Developed a full-stack web application using Express serving as RESTful API with Next.js as the framework.}
-            \resumeItem{Implemented a dual-player mode using WebSocket, where players guess each other's question within limited time.}
-            \resumeItem{Collaborated with 3 developers,  managing code integration and team communication to ensure synchronization across parallel workstreams.}
+            \resumeItem{Built a Kubernetes observability stack with Prometheus, Grafana, Alertmanager, and OpenSearch with Fluent Bit, routing alerts to Mattermost and exposing services to the lab network through Traefik and Gateway API.}
+            \resumeItem{Designed a read-only AI agent with scoped RBAC and output masking, validated by 35 automated security tests.}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{National Field Robot Competition} $|$ \emph{YOLOv7, OpenCV, Python, PySerial, Arduino}}{}
+          {\textbf{Wordle Online Game} $|$ \emph{Next.js, Node.js, PostgreSQL, Socket.io}}{}
           \resumeItemListStart
-            \resumeItem{Applied YOLOv7 for fruit detection (98.3\% mAP, 99.1\% IOU), enabling robust performance in outdoor field.}
-            \resumeItem{Managed a 4-person team to deploy computer vision for an autonomous robot, coordinating technical tasks and communication.}
-          \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{Pineapple Growth Stage Classifier} $|$ \emph{Python, Pytorch, ResNet, OpenCV}}{}
-          \resumeItemListStart
-            \resumeItem{Trained a ResNet-18 model to classify different growth stages of pineapples which achieved an accuracy of 99.7\%.}
-            \resumeItem{Analyzed the result of the classifier and organized the findings using matplotlib and confusion matrix.}
-          \resumeItemListEnd
-          \resumeProjectHeading
-          {\textbf{Remote Control Vacuum Car } $|$ \emph{Python, OpenCV, Arduino, Raspberry Pi }}{}
-          \resumeItemListStart
-            \resumeItem{Developed an autonomous vacuum cleaning robot capable of navigating obstacles and completing
-cleaning tasks.}
-            \resumeItem{Designed and implemented an Arduino/Raspberry Pi-based control architecture for vacuum robot navigation.}
+            \resumeItem{Built a Next.js and PostgreSQL platform using Drizzle ORM to manage game logic and player statistics.}
+            \resumeItem{Integrated NextAuth.js for authentication and Zod for strict API schema validation to ensure system stability.}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 %-------------------------------------------
@@ -189,20 +189,27 @@ cleaning tasks.}
 %-----------EDUCATION-----------
 \section{Education}
   \resumeSubHeadingListStart
-  \resumeSubheading
-      {National Taiwan University \& University of Tsukuba }{}
-      {Dual Degree Program (Master)}{Sep. 2024 -- June 2027(Expected)}
+    \resumeSubheading
+      {National Taiwan University \& University of Tsukuba}{}
+      {Dual Degree Program (Master)}{Sep. 2024 -- Jun. 2027(Expected)}
       \resumeItemListStart
         \resumeItem{Master of Science in Biomechatronics Engineering \& Agro-Bioresources Sciences and Technology}
-          \resumeItem{Received \textbf{1 scholarship}}
+        \resumeItem{Received Dean's List Award 1 time and 3 scholarships}
       \resumeItemListEnd
     \resumeSubheading
-      {National Taiwan University }{}
-      {Bachelor of Science in Biomechatronics Engineering}{Sept. 2020 -- June 2024}
-      \resumeItemListStart
-        \resumeItem{Received \textbf{Dean's List Award\textbf{ }1 time} and \textbf{2 scholarships}}
-        \resumeItem{Courses: Data Structures and Algorithms, Data Science, Linear Algebra, Machine Learning, Image Processing, Web Programming}
-      \resumeItemListEnd
+      {National Taiwan University}{}
+      {Bachelor of Science in Biomechatronics Engineering}{Sep. 2020 -- Jun. 2024}
+      \item[] \small{\underline{Relevant Coursework}}
+      \begin{multicols}{3}
+        \begin{itemize}[leftmargin=0.15in]
+          \item Data Science
+          \item Data Structures and Algorithms
+          \item Machine Learning
+          \item Linear Algebra
+          \item Web Programming
+          \item Image Processing
+        \end{itemize}
+      \end{multicols}
   \resumeSubHeadingListEnd
 %---------------------------------
 
@@ -210,13 +217,13 @@ cleaning tasks.}
 \section{Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{AI \& Computing}{: Pytorch, Tensorflow, CUDA, HuggingFace, TensorRT} \\
+     \textbf{AI \& Computing}{: Pytorch, Tensorflow, CUDA, Nsight, HuggingFace, TensorRT} \\
     }}
-\small{\item{
-     \textbf{Software Development}{: Python, C++, Java, Swift, JavaScript, HTML/CSS, React, Next.js} \\
+    \small{\item{
+     \textbf{Development}{: Python, C++, C, Java, Swift, JavaScript, HTML/CSS, React, Next.js, Arduino, Raspberry Pi} \\
     }}
-\small{\item{
-     \textbf{Infrastructure \& Data}{: Linux, Docker, Kubernetes, Git, MySQL, PostgreSQL, MongoDB, Arduino, Raspberry Pi} \\
+    \small{\item{
+     \textbf{Infrastructure \& Data}{: Linux, Docker, Kubernetes, Prometheus, OpenSearch, Grafana, Git, PostgreSQL, MongoDB} \\
     }}
     \small{\item{
      \textbf{Language}{: Mandarin(Native), English(Fluent, TOEIC L\&R 860), Japanese(Fluent, N1)} \\

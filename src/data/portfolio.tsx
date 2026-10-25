@@ -3,11 +3,11 @@ import { User, Phone, Mail, Github } from 'lucide-react';
 
 export const profile = {
     name: "Cheng-En Chiang",
-    tagline: "ML & CV Engineer · Researcher",
+    tagline: "AI Research Engineer · ML & CV",
 };
 
 export const aboutData = {
-    description: "I am a researcher and engineer with a deep passion for applying AI and computer vision to solve real-world problems. With experience spanning full-stack development, server administration, and agricultural robotics, I strive to bridge the gap between research algorithms and deployable solutions.",
+    description: "I am an AI research engineer with a deep passion for applying AI and computer vision to solve real-world problems. With experience spanning computer vision for precision livestock farming, GPU cluster and Kubernetes infrastructure, and full-stack development, I strive to bridge the gap between research algorithms and deployable solutions.",
     experiences: [
         {
             title: "Researcher, Server Administrator",
@@ -33,15 +33,15 @@ export const aboutData = {
     ],
     education: [
         {
-            degree: "Dual Degree Program (Master) in Biomechatronics Engineering & Agro-Bioresources Sciences",
+            degree: "Dual Degree Program (Master) in Biomechatronics Engineering & Agro-Bioresources Sciences and Technology",
             school: "National Taiwan University & University of Tsukuba",
-            date: "Sep. 2024 -- June 2027 (Expected)",
+            date: "Sep. 2024 – Jun. 2027 (Expected)",
             color: "bg-purple-300"
         },
         {
             degree: "Bachelor of Science in Biomechatronics Engineering",
             school: "National Taiwan University",
-            date: "Sept. 2020 -- June 2024",
+            date: "Sep. 2020 – Jun. 2024",
             color: "bg-green-300"
         }
     ]
@@ -49,10 +49,18 @@ export const aboutData = {
 
 export const projectsData = [
     {
+        title: "AI-Assisted Observability Stack",
+        category: "DevOps",
+        description: "Built a Kubernetes observability stack with Prometheus, Grafana, Alertmanager, and OpenSearch with Fluent Bit, routing alerts to Mattermost and exposing services through Traefik and Gateway API. Designed a read-only AI agent with scoped RBAC and output masking, validated by 35 automated security tests.",
+        tags: ["Kubernetes", "Claude Code", "Prometheus", "Grafana", "OpenSearch"],
+        link: "#",
+        color: "bg-cyan-100"
+    },
+    {
         title: "Wordle Online Game",
         category: "Web Dev",
-        description: "Developed a full-stack web application using Express serving as RESTful API with Next.js as the framework. Implemented a dual-player mode using WebSocket, where players guess each other's question within limited time.",
-        tags: ["Next.js", "Express.js", "PostgresSQL", "Tailwind CSS", "WebSocket"],
+        description: "Built a Next.js and PostgreSQL platform using Drizzle ORM to manage game logic and player statistics. Integrated NextAuth.js for authentication and Zod for strict API schema validation to ensure system stability.",
+        tags: ["Next.js", "Node.js", "PostgreSQL", "Socket.io"],
         link: "#",
         color: "bg-yellow-100"
     },
@@ -85,17 +93,17 @@ export const projectsData = [
 export const skillsData = [
     {
         title: "AI & Computing",
-        skills: ["Pytorch", "Tensorflow", "CUDA", "HuggingFace", "TensorRT"],
+        skills: ["Pytorch", "Tensorflow", "CUDA", "Nsight", "HuggingFace", "TensorRT"],
         color: "bg-pink-400"
     },
     {
-        title: "Software Development",
-        skills: ["Python", "C++", "Java", "Swift", "JavaScript", "HTML/CSS", "React", "Next.js"],
+        title: "Development",
+        skills: ["Python", "C++", "C", "Java", "Swift", "JavaScript", "HTML/CSS", "React", "Next.js", "Arduino", "Raspberry Pi"],
         color: "bg-yellow-400"
     },
     {
         title: "Infrastructure & Data",
-        skills: ["Linux", "Docker", "Kubernetes", "Git", "MySQL", "PostgreSQL", "MongoDB", "Arduino", "Raspberry Pi"],
+        skills: ["Linux", "Docker", "Kubernetes", "Prometheus", "OpenSearch", "Grafana", "Git", "PostgreSQL", "MongoDB"],
         color: "bg-cyan-400"
     },
     {
