@@ -10,39 +10,25 @@ export const aboutData = {
     description: "I am an AI research engineer with a deep passion for applying AI and computer vision to solve real-world problems. With experience spanning computer vision for precision livestock farming, GPU cluster and Kubernetes infrastructure, and full-stack development, I strive to bridge the gap between research algorithms and deployable solutions.",
     experiences: [
         {
-            title: "AI Research Engineer",
+            title: "Researcher, Server Administrator",
             company: "Lab of Machine Learning and Machine Vision",
-            date: "Jul. 2023 – Present",
-            description: "Developed a pose estimation system using EfficientNet to track 16 keypoints with 3.75 pixels RMSE, and achieved 91% accuracy in classifying lameness across 32 pigs by integrating gait features with an SVM classifier.",
+            date: "July 2023 -- Present",
+            description: "Developed pose estimation systems and administered high-performance GPU clusters.",
             color: "bg-cyan-300"
         },
         {
-            title: "Server Administrator",
-            company: "Lab of Machine Learning and Machine Vision",
-            date: "Jul. 2023 – Apr. 2025",
-            description: "Orchestrated 6 high-performance GPU clusters using Kubernetes, enabling scalable compute resources and secure remote access for 50+ researchers across Taiwan and Japan.",
-            color: "bg-green-300"
-        },
-        {
-            title: "AI Research Engineer",
+            title: "Researcher",
             company: "Lab of Bioproduction and Machinery",
-            date: "Apr. 2025 – Apr. 2026",
-            description: "Developed a behavior monitoring system for piglets using YOLOv11 and EfficientNet-LSTM, achieving 83.1% MOTA in tracking and 93.0% accuracy in behavior classification. Conducted full-stack development workshops for lab members and a partner university in the Philippines.",
+            date: "April 2025 -- April 2026",
+            description: "Developed monitoring systems for piglets and conducted full-stack development workshops.",
             color: "bg-pink-300"
         },
         {
-            title: "Undergraduate Research Engineer",
+            title: "Undergraduate Researcher",
             company: "National Science and Technology Council",
-            date: "Jul. 2023 – Feb. 2024",
-            description: "Developed ML & CV solutions for the pig farming industry, designing a CV-based lameness detection system that replaces a 40,000 USD pressure mat method, in collaboration with farm staff.",
+            date: "July 2023 -- Feb. 2024",
+            description: "Developed ML & CV solutions for lameness detection in the pig farming industry.",
             color: "bg-yellow-300"
-        },
-        {
-            title: "Teaching Assistant",
-            company: "National Taiwan University",
-            date: "Jan. 2024 – Jun. 2024",
-            description: "Assigned as a TA for the data science course and designed a programming assignment for 40+ students.",
-            color: "bg-purple-300"
         }
     ],
     education: [
