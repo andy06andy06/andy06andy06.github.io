@@ -113,6 +113,21 @@ export const skillsData = [
     }
 ];
 
+export interface Photo {
+    src: string;
+    date: string;  // "2025/03", or "" when the file name has no date prefix
+    alt: string;
+}
+
+// Built from the folders in public/photos by src/lib/photos.ts
+export interface PhotoSpot {
+    id: string;
+    name: string;
+    coords: [number, number]; // [longitude, latitude]
+    color: string;            // pin / panel accent (hex)
+    photos: Photo[];
+}
+
 export const contactData = {
     message: "I'm always open to discussing new projects, research collaborations, or opportunities in AI and robotics. Let's connect!",
     contacts: [
