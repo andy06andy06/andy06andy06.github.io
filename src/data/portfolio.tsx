@@ -114,11 +114,12 @@ export const skillsData = [
 ];
 
 export interface Photo {
-    src: string;   // path under /public, e.g. "/photos/kyoto-1.jpg"
-    date: string;  // shown next to the place name, e.g. "2025/03"
+    src: string;
+    date: string;  // "2025/03", or "" when the file name has no date prefix
     alt: string;
 }
 
+// Built from the folders in public/photos by src/lib/photos.ts
 export interface PhotoSpot {
     id: string;
     name: string;
@@ -126,40 +127,6 @@ export interface PhotoSpot {
     color: string;            // pin / panel accent (hex)
     photos: Photo[];
 }
-
-// Sample places with placeholder images: replace with real photos (see README)
-export const photoSpots: PhotoSpot[] = [
-    {
-        id: "taipei",
-        name: "Taipei, Taiwan",
-        coords: [121.5654, 25.033],
-        color: "#5eead4",
-        photos: [
-            { src: "/photos/placeholder-2.svg", date: "2024/11", alt: "Placeholder photo of Taipei" },
-            { src: "/photos/placeholder-3.svg", date: "2025/01", alt: "Placeholder photo of Taipei" },
-        ]
-    },
-    {
-        id: "tsukuba",
-        name: "Tsukuba, Japan",
-        coords: [140.1, 36.0835],
-        color: "#fde047",
-        photos: [
-            { src: "/photos/placeholder-4.svg", date: "2025/10", alt: "Placeholder photo of Tsukuba" },
-        ]
-    },
-    {
-        id: "kyoto",
-        name: "Kyoto, Japan",
-        coords: [135.7681, 35.0116],
-        color: "#f9a8d4",
-        photos: [
-            { src: "/photos/placeholder-1.svg", date: "2025/03", alt: "Placeholder photo of Kyoto" },
-            { src: "/photos/placeholder-3.svg", date: "2025/03", alt: "Placeholder photo of Kyoto" },
-            { src: "/photos/placeholder-2.svg", date: "2025/04", alt: "Placeholder photo of Kyoto" },
-        ]
-    },
-];
 
 export const contactData = {
     message: "I'm always open to discussing new projects, research collaborations, or opportunities in AI and robotics. Let's connect!",

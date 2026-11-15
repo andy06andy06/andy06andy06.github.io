@@ -6,9 +6,9 @@ import { MapPin, X } from 'lucide-react';
 
 import WorldMap from '@/components/WorldMap';
 import PhotoLightbox from '@/components/PhotoLightbox';
-import { photoSpots } from '@/data/portfolio';
+import type { PhotoSpot } from '@/data/portfolio';
 
-export default function Photos() {
+export default function Photos({ photoSpots }: { photoSpots: PhotoSpot[] }) {
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
     const selectedSpot = photoSpots.find((spot) => spot.id === selectedId) ?? null;
@@ -69,7 +69,7 @@ export default function Photos() {
                                     <button
                                         key={`${photo.src}-${index}`}
                                         type="button"
-                                        aria-label={`Open photo ${index + 1}, ${photo.date}`}
+                                        aria-label={`Open photo ${index + 1}${photo.date ? `, ${photo.date}` : ''}`}
                                         onClick={() => setLightboxIndex(index)}
                                         className="shrink-0 bg-white border-2 border-black p-1 shadow-[3px_3px_0_0_#000] hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#000] transition-all"
                                     >
@@ -80,7 +80,7 @@ export default function Photos() {
                                             loading="lazy"
                                             className="w-28 h-20 object-cover border border-black"
                                         />
-                                        <span className="block pt-1 text-xs font-bold">{photo.date}</span>
+                                        {photo.date && <span className="block pt-1 text-xs font-bold">{photo.date}</span>}
                                     </button>
                                 ))}
                             </div>

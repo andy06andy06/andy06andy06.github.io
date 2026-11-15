@@ -59,7 +59,7 @@ export default function PhotoLightbox({ spot, index, onChange, onClose }: PhotoL
                     className="min-h-0 max-w-full max-h-[70vh] object-contain border-2 border-black"
                 />
                 <figcaption className="flex items-center justify-between gap-4 pt-3 text-black font-bold">
-                    <span>{spot.name} · {photo.date}</span>
+                    <span>{spot.name}{photo.date && ` · ${photo.date}`}</span>
                     <span className="shrink-0 whitespace-nowrap text-sm text-black/60">{index + 1} / {count}</span>
                 </figcaption>
             </figure>
