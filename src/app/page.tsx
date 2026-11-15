@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import Taskbar from '@/components/Taskbar';
 import DesktopIcon from '@/components/DesktopIcon';
 import Window from '@/components/Window';
 import StartAnimation from '@/components/StartAnimation';
 import ClickSound from '@/components/ClickSound';
-import { User, Code2, Wrench, Mail } from 'lucide-react';
+import { User, Code2, Wrench, Mail, MapPin } from 'lucide-react';
 
 import About from '@/components/About';
 import Projects from '@/components/Projects';
@@ -16,6 +17,12 @@ import Contact from '@/components/Contact';
 import PixelRoom, { PixelRoomHandle } from '@/components/PixelRoom';
 import Text3D from '@/components/Text3D';
 import { profile } from '@/data/portfolio';
+
+// The map data is only downloaded once the Photos window is first opened
+const Photos = dynamic(() => import('@/components/Photos'), {
+  ssr: false,
+  loading: () => <p className="font-bold text-black">Loading map...</p>,
+});
 
 // Vertical gap between the bottom of an icon (or the icon row) and where the character stands
 const CHARACTER_GAP = 48;
@@ -111,6 +118,7 @@ export default function Home() {
     { id: 'projects', name: 'Projects.exe', subtitle: "Things I've built", icon: Code2, color: 'var(--primary-cyan)' },
     { id: 'skills', name: 'Skills.cfg', subtitle: 'Tech stack', icon: Wrench, color: 'var(--primary-yellow)' },
     { id: 'contact', name: 'Contact.mail', subtitle: 'Say hi', icon: Mail, color: 'var(--primary-purple)' },
+    { id: 'photos', name: 'Photos.jpg', subtitle: "Places I've been", icon: MapPin, color: 'var(--primary-orange)' },
   ];
 
   return (
@@ -128,7 +136,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div ref={iconRowRef} className="grid grid-cols-2 lg:flex gap-4 lg:gap-10">
+          <div ref={iconRowRef} className="flex flex-wrap justify-center max-w-[22rem] lg:max-w-none gap-4 lg:gap-10">
             {apps.map((app) => (
               <DesktopIcon
                 key={app.id}
@@ -220,6 +228,22 @@ export default function Home() {
         <div className="p-4 border-2 border-black h-full bg-white overflow-y-auto">
           <Contact />
         </div>
+      </Window>
+
+      <Window
+        id="photos"
+        title="Photos.jpg - World Map"
+        isOpen={openWindows.includes('photos')}
+        isActive={activeWindow === 'photos'}
+        isMinimized={minimizedWindows.includes('photos')}
+        onClose={closeWindow}
+        onMinimize={minimizeWindow}
+        onBringToFront={bringToFront}
+        headerColor="var(--primary-orange)"
+        defaultPosition={{ x: 300, y: 60 }}
+        className="w-[90vw] md:w-[820px] h-[75vh] md:h-[600px]"
+      >
+        <Photos />
       </Window>
 
       <Taskbar
