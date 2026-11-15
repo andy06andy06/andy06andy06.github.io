@@ -9,4 +9,4 @@ This is the personal portfolio website of Cheng-En Chiang, an AI Research Engine
 
 ## Adding photos to the map
 
-The `Photos.jpg` window shows a world map with a pin for each place. Photos live in `public/photos/`, one folder per place. See [public/photos/README.md](public/photos/README.md) for how to add them.
+The `Photos.jpg` window shows a world map with a pin for each place. Photos live in `public/photos/`, organised as `country/city/` folders. See [public/photos/README.md](public/photos/README.md) for how to add them.
